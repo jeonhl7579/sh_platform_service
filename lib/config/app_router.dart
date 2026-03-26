@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../core/providers/auth_providers.dart';
+import '../presentation/splash/screen.dart';
 
 // ─── Route Path 상수 ──────────────────────────────────────────────────────────
 abstract final class AppRoutes {
@@ -54,7 +55,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.splash,
         parentNavigatorKey: _rootNavigatorKey,
-        builder: (context, state) => const Placeholder(), // SplashScreen()
+        builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
         path: AppRoutes.login,
