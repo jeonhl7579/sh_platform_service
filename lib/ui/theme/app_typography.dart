@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 // Display & Headline: Plus Jakarta Sans (geometric clarity, friendly terminals)
 // Body & Labels: Be Vietnam Pro (humanist, legible at small scales)
@@ -10,21 +9,24 @@ abstract final class AppTypography {
   }) {
     return TextTheme(
       // ── Display ─────────────────────────────────────────────────────────────
-      displayLarge: GoogleFonts.plusJakartaSans(
+      displayLarge: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 57,
         fontWeight: FontWeight.w400,
-        letterSpacing: -1.14, // -2% tight letter-spacing (57 * 0.02)
+        letterSpacing: -1.14,
         height: 1.12,
         color: onSurface,
       ),
-      displayMedium: GoogleFonts.plusJakartaSans(
+      displayMedium: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 45,
         fontWeight: FontWeight.w400,
         letterSpacing: -0.90,
         height: 1.16,
         color: onSurface,
       ),
-      displaySmall: GoogleFonts.plusJakartaSans(
+      displaySmall: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 36,
         fontWeight: FontWeight.w400,
         letterSpacing: -0.72,
@@ -33,21 +35,24 @@ abstract final class AppTypography {
       ),
 
       // ── Headline ─────────────────────────────────────────────────────────────
-      headlineLarge: GoogleFonts.plusJakartaSans(
+      headlineLarge: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 32,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.64,
         height: 1.25,
         color: onSurface,
       ),
-      headlineMedium: GoogleFonts.plusJakartaSans(
+      headlineMedium: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 28,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.56,
         height: 1.29,
         color: onSurface,
       ),
-      headlineSmall: GoogleFonts.plusJakartaSans(
+      headlineSmall: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 24,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.48,
@@ -56,21 +61,24 @@ abstract final class AppTypography {
       ),
 
       // ── Title ────────────────────────────────────────────────────────────────
-      titleLarge: GoogleFonts.plusJakartaSans(
+      titleLarge: TextStyle(
+        fontFamily: 'PlusJakartaSans',
         fontSize: 22,
         fontWeight: FontWeight.w600,
         letterSpacing: -0.20,
         height: 1.27,
         color: onSurface,
       ),
-      titleMedium: GoogleFonts.beVietnamPro(
+      titleMedium: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 16,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.15,
         height: 1.50,
         color: onSurface,
       ),
-      titleSmall: GoogleFonts.beVietnamPro(
+      titleSmall: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.10,
@@ -79,21 +87,24 @@ abstract final class AppTypography {
       ),
 
       // ── Body ─────────────────────────────────────────────────────────────────
-      bodyLarge: GoogleFonts.beVietnamPro(
+      bodyLarge: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 16,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.50,
         height: 1.50,
         color: onSurface,
       ),
-      bodyMedium: GoogleFonts.beVietnamPro(
+      bodyMedium: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 14,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.25,
         height: 1.43,
         color: onSurface,
       ),
-      bodySmall: GoogleFonts.beVietnamPro(
+      bodySmall: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 12,
         fontWeight: FontWeight.w400,
         letterSpacing: 0.40,
@@ -102,21 +113,24 @@ abstract final class AppTypography {
       ),
 
       // ── Label ────────────────────────────────────────────────────────────────
-      labelLarge: GoogleFonts.beVietnamPro(
+      labelLarge: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 14,
         fontWeight: FontWeight.w600,
         letterSpacing: 0.10,
         height: 1.43,
         color: onSurface,
       ),
-      labelMedium: GoogleFonts.beVietnamPro(
+      labelMedium: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 12,
         fontWeight: FontWeight.w500,
         letterSpacing: 0.50,
         height: 1.33,
         color: onSurface,
       ),
-      labelSmall: GoogleFonts.beVietnamPro(
+      labelSmall: TextStyle(
+        fontFamily: 'BeVietnamPro',
         fontSize: 11,
         fontWeight: FontWeight.w500,
         letterSpacing: 0.50,
