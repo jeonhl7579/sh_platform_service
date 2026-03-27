@@ -1,12 +1,25 @@
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:sh_platform_service/config/app_router.dart';
+import 'package:sh_platform_service/presentation/splash/provider.dart';
 import '../../ui/layout/app_breakpoints.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends ConsumerWidget {
   const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen(splashScreenProvider, (_, next) {
+      next.whenData((hasSession) {
+        if (hasSession) {
+          // 메인 페이지로 이동
+        } else {
+          // 로그인 페이지로 이동
+          context.go(AppRoutes.login);
+        }
+      });
+    });
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
