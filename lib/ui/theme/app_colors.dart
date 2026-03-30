@@ -23,7 +23,7 @@ abstract final class RadiantLightColors {
   static const errorContainer = Color(0xffffdad6);
   static const onErrorContainer = Color(0xff410002);
 
-  static const surface = Color(0xfffff4f4);
+  static const surface = Color(0xffffffff);
   static const onSurface = Color(0xff4d2126);
   static const onSurfaceVariant = Color(0xff534344);
   static const outline = Color(0xff857374);
@@ -105,7 +105,7 @@ abstract final class AmberGlowColors {
   static const errorContainer = Color(0xffffdad6);
   static const onErrorContainer = Color(0xff410002);
 
-  static const surface = Color(0xfffff8f2);
+  static const surface = Color(0xffffffff);
   static const onSurface = Color(0xff261900);
   static const onSurfaceVariant = Color(0xff52442c);
   static const outline = Color(0xff857351);
@@ -146,7 +146,7 @@ abstract final class TealSerenityColors {
   static const errorContainer = Color(0xffffdad6);
   static const onErrorContainer = Color(0xff410002);
 
-  static const surface = Color(0xfff4fdfb);
+  static const surface = Color(0xffffffff);
   static const onSurface = Color(0xff00201d);
   static const onSurfaceVariant = Color(0xff3f4947);
   static const outline = Color(0xff6f7977);

@@ -30,11 +30,11 @@ abstract final class AppTheme {
   static ThemeData get tealSerenity => _build(_tealSerenityScheme);
 
   static ThemeData of(AppThemeVariant variant) => switch (variant) {
-        AppThemeVariant.radiantLight => radiantLight,
-        AppThemeVariant.radiantDark => radiantDark,
-        AppThemeVariant.amberGlow => amberGlow,
-        AppThemeVariant.tealSerenity => tealSerenity,
-      };
+    AppThemeVariant.radiantLight => radiantLight,
+    AppThemeVariant.radiantDark => radiantDark,
+    AppThemeVariant.amberGlow => amberGlow,
+    AppThemeVariant.tealSerenity => tealSerenity,
+  };
 
   // ── Core Builder ──────────────────────────────────────────────────────────
   static ThemeData _build(ColorScheme cs) {
@@ -45,7 +45,7 @@ abstract final class AppTheme {
     final isDark = cs.brightness == Brightness.dark;
 
     return ThemeData(
-      useMaterial3: true,
+      useMaterial3: false,
       colorScheme: cs,
       brightness: cs.brightness,
       textTheme: text,
@@ -76,9 +76,7 @@ abstract final class AppTheme {
         color: cs.surfaceContainerLowest,
         elevation: 0,
         shadowColor: cs.shadow.withValues(alpha: 0.06),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24), // xl: 3rem friendly DNA
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         margin: EdgeInsets.zero,
       ),
 
@@ -131,33 +129,32 @@ abstract final class AppTheme {
         ),
       ),
 
-      // ── Input Fields: soft-rect (1.5rem = 24px) ────────────────────────────
+      // ── Input Fields ──────────────────────────────────────────────────────
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: cs.surfaceContainerLowest,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
         // Active state: 2px ghost border with primaryContainer @ 40%
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
-          borderSide: BorderSide(
-            color: cs.primaryContainer.withValues(alpha: 0.40),
-            width: 2,
-          ),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide.none,
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
-          borderSide: BorderSide(color: cs.error, width: 1),
+          borderRadius: BorderRadius.circular(12),
+          // borderSide: BorderSide(color: cs.error, width: 1),
+          borderSide: BorderSide.none,
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(24),
-          borderSide: BorderSide(color: cs.error, width: 2),
+          borderRadius: BorderRadius.circular(12),
+          // borderSide: BorderSide(color: cs.error, width: 2),
+          borderSide: BorderSide.none,
         ),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 24,
@@ -175,9 +172,7 @@ abstract final class AppTheme {
         backgroundColor: cs.surfaceContainerHigh,
         selectedColor: cs.tertiary,
         labelStyle: text.labelMedium,
-        secondaryLabelStyle: text.labelMedium?.copyWith(
-          color: cs.onTertiary,
-        ),
+        secondaryLabelStyle: text.labelMedium?.copyWith(color: cs.onTertiary),
         shape: const StadiumBorder(side: BorderSide.none),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         side: BorderSide.none,
@@ -244,9 +239,7 @@ abstract final class AppTheme {
       listTileTheme: ListTileThemeData(
         tileColor: Colors.transparent,
         selectedTileColor: cs.primaryContainer.withValues(alpha: 0.20),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
       ),
 
@@ -255,13 +248,9 @@ abstract final class AppTheme {
         backgroundColor: cs.surfaceContainerLowest,
         elevation: 0,
         shadowColor: cs.shadow.withValues(alpha: 0.06),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         titleTextStyle: text.headlineSmall?.copyWith(color: cs.onSurface),
-        contentTextStyle: text.bodyMedium?.copyWith(
-          color: cs.onSurfaceVariant,
-        ),
+        contentTextStyle: text.bodyMedium?.copyWith(color: cs.onSurfaceVariant),
       ),
 
       // ── Bottom Sheet ──────────────────────────────────────────────────────
@@ -272,7 +261,7 @@ abstract final class AppTheme {
         modalBackgroundColor: cs.surfaceContainerLow,
         modalElevation: 0,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
         ),
         dragHandleColor: cs.onSurfaceVariant.withValues(alpha: 0.40),
       ),
@@ -280,14 +269,10 @@ abstract final class AppTheme {
       // ── Snack Bar ─────────────────────────────────────────────────────────
       snackBarTheme: SnackBarThemeData(
         backgroundColor: cs.inverseSurface,
-        contentTextStyle: text.bodyMedium?.copyWith(
-          color: cs.onInverseSurface,
-        ),
+        contentTextStyle: text.bodyMedium?.copyWith(color: cs.onInverseSurface),
         actionTextColor: cs.inversePrimary,
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         elevation: 0,
       ),
 
@@ -325,9 +310,7 @@ abstract final class AppTheme {
         }),
         checkColor: WidgetStateProperty.all(cs.onPrimary),
         side: BorderSide(color: cs.outline, width: 1.5),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
 
       radioTheme: RadioThemeData(
@@ -342,9 +325,7 @@ abstract final class AppTheme {
         color: cs.surfaceContainerLowest,
         elevation: 0,
         shadowColor: cs.shadow.withValues(alpha: 0.06),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         textStyle: text.bodyMedium,
       ),
 
@@ -352,7 +333,7 @@ abstract final class AppTheme {
       tooltipTheme: TooltipThemeData(
         decoration: BoxDecoration(
           color: cs.inverseSurface.withValues(alpha: 0.90),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
         ),
         textStyle: text.labelSmall?.copyWith(color: cs.onInverseSurface),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),

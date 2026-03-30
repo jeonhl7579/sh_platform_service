@@ -15,3 +15,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+# 개발 일정
+
+3월 30일 :
+- 로그인 화면(데스크탑) 개발
+- 디자인 테마 시스템 적용 및 내부저장소 연결
+- supabase를 활용한 이메일, 패스워드 로그인

@@ -1,7 +1,11 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sh_platform_service/config/app_router.dart';
 import 'package:sh_platform_service/presentation/splash/provider.dart';
+import 'package:window_manager/window_manager.dart';
 import '../../ui/layout/app_breakpoints.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,12 +15,30 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen(splashScreenProvider, (_, next) {
-      next.whenData((hasSession) {
+      next.whenData((hasSession) async {
         if (hasSession) {
           // 메인 페이지로 이동
         } else {
           // 로그인 페이지로 이동
-          context.go(AppRoutes.login);
+          if (Platform.isMacOS || Platform.isWindows) {
+            final pixelRatio =
+                PlatformDispatcher.instance.views.first.devicePixelRatio;
+            // 물리 픽셀 1024x720 기준으로 논리 픽셀 계산
+            await windowManager.setSize(
+              Size(1024 / pixelRatio, 720 / pixelRatio),
+            );
+            await windowManager.setMinimumSize(
+              Size(1024 / pixelRatio, 720 / pixelRatio),
+            );
+          }
+
+          // BuildContext 사용을 async gap 이후에 직접 쓰지 않고,
+          // 마이크로태스크 큐에 등록하여 안전하게 처리
+          Future.microtask(() {
+            if (context.mounted) {
+              context.go(AppRoutes.login);
+            }
+          });
         }
       });
     });

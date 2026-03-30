@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:sh_platform_service/ui/layout/app_breakpoints.dart';
+import 'package:sh_platform_service/presentation/auth/widgets/auth_text_input_field.dart';
+import 'package:sh_platform_service/ui/layout/gaps.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -9,11 +12,12 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-          if (AppBreakpoints.isDesktop(constraints.maxWidth)) {
+          // os가 macos이거나 window인 경우
+          if (Platform.isMacOS || Platform.isWindows) {
             return const _DesktopLoginScreen();
+          } else {
+            return const Center(child: Text('Mobile Login'));
           }
-          // 모바일/기본 화면 구현이 없어서 예시로 Container 사용
-          return const Center(child: Text('Mobile Login'));
         },
       ),
     );
@@ -31,8 +35,19 @@ class __DesktopLoginScreenState extends State<_DesktopLoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(color: Theme.of(context).colorScheme.surface),
-      child: Center(child: Text('Login')),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Gaps.v48,
+          Text(
+            "JSH PLATFORM",
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+        ],
+      ),
     );
   }
 }

@@ -45,7 +45,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       title: 'SH Platform Service',
-      theme: AppTheme.amberGlow,
+      theme: AppTheme.radiantLight,
       routerConfig: router,
     );
   }
